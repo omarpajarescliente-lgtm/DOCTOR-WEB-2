@@ -1,0 +1,6 @@
+{
+  "name": "Dr. Omar Pajares - Especialista en Rodilla y Cadera",
+  "description": "Especialista en Medicina Física y Rehabilitación. Tratamiento del dolor de rodilla y cadera con medicina regenerativa, sin cirugía en Lima, Perú.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
