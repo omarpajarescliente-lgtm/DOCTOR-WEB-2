@@ -1,84 +1,148 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="1000" height="700">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 850" width="1200" height="850">
   <defs>
-    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+    <!-- Gold Gradients for AAOM Emblem -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#b8860b"/>
-      <stop offset="50%" stop-color="#f3e5ab"/>
+      <stop offset="30%" stop-color="#e6ca65"/>
+      <stop offset="70%" stop-color="#d4af37"/>
       <stop offset="100%" stop-color="#8b6508"/>
     </linearGradient>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#ffffff"/>
-      <stop offset="100%" stop-color="#fcfbf7"/>
+    <linearGradient id="goldLight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f5e5a3"/>
+      <stop offset="100%" stop-color="#c59b27"/>
     </linearGradient>
-    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
-      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#000000" flood-opacity="0.12"/>
+    <!-- Paper Texture Filter -->
+    <filter id="paperGrain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise"/>
+      <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.03 0" in="noise" result="coloredNoise"/>
+      <feComposite operator="in" in2="SourceGraphic"/>
     </filter>
+    <!-- Guilloche Border Pattern -->
+    <pattern id="guillochePattern" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 0 10 Q 5 0, 10 10 T 20 10" fill="none" stroke="#25527b" stroke-width="0.8" opacity="0.6"/>
+      <path d="M 10 0 Q 20 5, 10 10 T 10 20" fill="none" stroke="#1d4264" stroke-width="0.8" opacity="0.6"/>
+      <circle cx="10" cy="10" r="3" fill="none" stroke="#3b6e9c" stroke-width="0.5"/>
+    </pattern>
   </defs>
 
-  <!-- Background Canvas -->
-  <rect width="1000" height="700" fill="url(#bgGrad)"/>
+  <!-- 1. Authentic Paper Sheet Base -->
+  <rect width="1200" height="850" fill="#fcfaf2"/>
+  <!-- Paper grain overlay -->
+  <rect width="1200" height="850" fill="#f5ede0" opacity="0.35"/>
 
-  <!-- Outer Ornate Diploma Border -->
-  <rect x="25" y="25" width="950" height="650" fill="none" stroke="url(#gold)" stroke-width="12" rx="6"/>
-  <rect x="42" y="42" width="916" height="616" fill="none" stroke="#00243d" stroke-width="2" stroke-dasharray="10 5"/>
-  <rect x="50" y="50" width="900" height="600" fill="none" stroke="#00243d" stroke-width="1"/>
-
-  <!-- USA Flag & International Seal Badge -->
-  <g transform="translate(820, 70)">
-    <rect x="0" y="0" width="60" height="36" fill="#b22234" rx="3"/>
-    <rect x="0" y="5.5" width="60" height="5.5" fill="#ffffff"/>
-    <rect x="0" y="16.5" width="60" height="5.5" fill="#ffffff"/>
-    <rect x="0" y="27.5" width="60" height="5.5" fill="#ffffff"/>
-    <rect x="0" y="0" width="24" height="22" fill="#3c3b6e" rx="2 0 0 0"/>
-    <circle cx="6" cy="5" r="1.2" fill="#ffffff"/>
-    <circle cx="18" cy="5" r="1.2" fill="#ffffff"/>
-    <circle cx="12" cy="11" r="1.2" fill="#ffffff"/>
-    <circle cx="6" cy="17" r="1.2" fill="#ffffff"/>
-    <circle cx="18" cy="17" r="1.2" fill="#ffffff"/>
-    <text x="30" y="52" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#00243d" text-anchor="middle">USA 🇺🇸</text>
+  <!-- 2. Printer Alignment / Crop Marks (matching scan edges) -->
+  <g stroke="#8c9ba5" stroke-width="0.75" stroke-dasharray="4 3" opacity="0.7">
+    <line x1="0" y1="42" x2="1200" y2="42"/>
+    <line x1="0" y1="808" x2="1200" y2="808"/>
+    <line x1="80" y1="0" x2="80" y2="850"/>
+    <line x1="1120" y1="0" x2="1120" y2="850"/>
   </g>
 
-  <!-- AAOM Emblem Header -->
-  <text x="500" y="115" font-family="Georgia, serif" font-size="40" font-weight="bold" fill="#b8860b" text-anchor="middle" letter-spacing="3">AAOM</text>
-  <text x="500" y="142" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#00243d" text-anchor="middle" letter-spacing="2">AMERICAN ASSOCIATION OF ORTHOPAEDIC MEDICINE</text>
-
-  <line x1="280" y1="160" x2="720" y2="160" stroke="url(#gold)" stroke-width="2"/>
-
-  <!-- Certify Text -->
-  <text x="500" y="210" font-family="Georgia, serif" font-size="20" font-weight="bold" fill="#334155" text-anchor="middle" letter-spacing="4">THIS IS TO CERTIFY THAT</text>
-
-  <!-- Doctor Name -->
-  <text x="500" y="280" font-family="Georgia, serif" font-size="42" font-weight="bold" fill="#0f172a" text-anchor="middle" letter-spacing="1">OMAR PAJARES TEQUÉN, MD</text>
-  <line x1="200" y1="300" x2="800" y2="300" stroke="#cbd5e1" stroke-width="1.5"/>
-
-  <!-- Description Body -->
-  <text x="500" y="348" font-family="Georgia, serif" font-size="17" font-style="italic" fill="#475569" text-anchor="middle">has successfully completed the prescribed course of study, written examination</text>
-  <text x="500" y="376" font-family="Georgia, serif" font-size="17" font-style="italic" fill="#475569" text-anchor="middle">and practical testing for the designation of</text>
-
-  <!-- Designation Highlight -->
-  <rect x="270" y="405" width="460" height="52" fill="#00243d" rx="8" filter="url(#shadow)"/>
-  <rect x="274" y="409" width="452" height="44" fill="none" stroke="url(#gold)" stroke-width="2" rx="6"/>
-  <text x="500" y="440" font-family="Arial, sans-serif" font-size="24" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="3">IROM — C CERTIFIED</text>
-
-  <text x="500" y="492" font-family="Georgia, serif" font-size="19" font-weight="bold" fill="#00243d" text-anchor="middle">Interventional Regenerative Orthopedic Medicine</text>
-  <text x="500" y="518" font-family="Georgia, serif" font-size="15" fill="#64748b" text-anchor="middle">by the American Academy / Association of Orthopaedic Medicine</text>
-
-  <!-- Gold Stamp / Seal Bottom Left -->
-  <g transform="translate(130, 555)">
-    <circle cx="38" cy="38" r="38" fill="url(#gold)"/>
-    <circle cx="38" cy="38" r="32" fill="none" stroke="#ffffff" stroke-width="2" stroke-dasharray="4 2"/>
-    <text x="38" y="34" font-family="Georgia, serif" font-size="10" font-weight="bold" fill="#00243d" text-anchor="middle">OFFICIAL</text>
-    <text x="38" y="46" font-family="Georgia, serif" font-size="9" font-weight="bold" fill="#00243d" text-anchor="middle">SEAL</text>
+  <!-- 3. Outer Certificate Security Border (Guilloche) -->
+  <g transform="translate(80, 42)">
+    <!-- Main Outer Blue Frame -->
+    <rect x="0" y="0" width="1040" height="766" fill="none" stroke="#1e466e" stroke-width="32"/>
+    <rect x="0" y="0" width="1040" height="766" fill="url(#guillochePattern)"/>
+    
+    <!-- Gold Hairline Borders -->
+    <rect x="-14" y="-14" width="1068" height="794" fill="none" stroke="url(#goldGrad)" stroke-width="2.5"/>
+    <rect x="14" y="14" width="1012" height="738" fill="none" stroke="url(#goldGrad)" stroke-width="2.5"/>
+    
+    <!-- Inner Blue Hairlines -->
+    <rect x="22" y="22" width="996" height="722" fill="none" stroke="#1e466e" stroke-width="1.5"/>
+    <rect x="26" y="26" width="988" height="714" fill="none" stroke="#b8860b" stroke-width="0.8"/>
   </g>
 
-  <!-- Date -->
-  <text x="320" y="590" font-family="Georgia, serif" font-size="14" font-weight="bold" fill="#334155">Date of Certification:</text>
-  <text x="320" y="612" font-family="Georgia, serif" font-size="16" font-weight="bold" fill="#0f172a">October 16, 2019</text>
+  <!-- 4. Top Right USA Flag Badge (Requested addition) -->
+  <g transform="translate(1005, 95)">
+    <!-- Flag frame shadow/border -->
+    <rect x="-2" y="-2" width="76" height="44" fill="#ffffff" stroke="#1e466e" stroke-width="1.5" rx="3"/>
+    <!-- Red/White Stripes -->
+    <rect x="0" y="0" width="72" height="40" fill="#ffffff"/>
+    <rect x="0" y="0" width="72" height="3.1" fill="#b22234"/>
+    <rect x="0" y="6.2" width="72" height="3.1" fill="#b22234"/>
+    <rect x="0" y="12.4" width="72" height="3.1" fill="#b22234"/>
+    <rect x="0" y="18.6" width="72" height="3.1" fill="#b22234"/>
+    <rect x="0" y="24.8" width="72" height="3.1" fill="#b22234"/>
+    <rect x="0" y="31.0" width="72" height="3.1" fill="#b22234"/>
+    <rect x="0" y="37.2" width="72" height="2.8" fill="#b22234"/>
+    <!-- Blue Canton -->
+    <rect x="0" y="0" width="29" height="21.7" fill="#3c3b6e"/>
+    <!-- Stars -->
+    <g fill="#ffffff">
+      <circle cx="5" cy="4" r="1.1"/>
+      <circle cx="14" cy="4" r="1.1"/>
+      <circle cx="23" cy="4" r="1.1"/>
+      <circle cx="9.5" cy="11" r="1.1"/>
+      <circle cx="18.5" cy="11" r="1.1"/>
+      <circle cx="5" cy="18" r="1.1"/>
+      <circle cx="14" cy="18" r="1.1"/>
+      <circle cx="23" cy="18" r="1.1"/>
+    </g>
+  </g>
 
-  <!-- Signatures Right -->
-  <g transform="translate(620, 570)">
-    <path d="M10 20 Q 40 -10, 80 25 T 140 10" fill="none" stroke="#00243d" stroke-width="2"/>
-    <line x1="0" y1="30" x2="220" y2="30" stroke="#94a3b8" stroke-width="1"/>
-    <text x="110" y="48" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#334155" text-anchor="middle">AAOM Board &amp; Certification</text>
-    <text x="110" y="64" font-family="Arial, sans-serif" font-size="11" fill="#64748b" text-anchor="middle">United States of America</text>
+  <!-- 5. AAOM Header Logo (Exact Caduceus & Gold AAOM Emblem) -->
+  <g transform="translate(600, 180)" text-anchor="middle">
+    <!-- Background Caduceus Staff Symbol -->
+    <g stroke="url(#goldGrad)" fill="none" opacity="0.85">
+      <!-- Staff -->
+      <line x1="0" y1="-75" x2="0" y2="35" stroke-width="3"/>
+      <circle cx="0" cy="-78" r="5" fill="url(#goldGrad)"/>
+      <!-- Serpents -->
+      <path d="M -18 -55 C -5 -40, 5 -30, 0 -15 C -5 0, 5 15, 0 30" stroke-width="2.2"/>
+      <path d="M 18 -55 C 5 -40, -5 -30, 0 -15 C 5 0, -5 15, 0 30" stroke-width="2.2"/>
+    </g>
+
+    <!-- Stylized AAOM Text -->
+    <text x="0" y="-12" font-family="'Times New Roman', Georgia, serif" font-size="78" font-weight="bold" fill="url(#goldGrad)" letter-spacing="6" font-style="italic" filter="drop-shadow(0px 1px 1px rgba(0,0,0,0.15))">AAOM</text>
+    
+    <!-- Subtitle Text -->
+    <text x="0" y="20" font-family="'Times New Roman', Georgia, serif" font-size="16" font-weight="bold" fill="#a37b1f" letter-spacing="4">American Association of</text>
+    <text x="0" y="38" font-family="'Times New Roman', Georgia, serif" font-size="16" font-weight="bold" fill="#a37b1f" letter-spacing="4">Orthopaedic Medicine</text>
+  </g>
+
+  <!-- 6. Document Certification Body -->
+  <g text-anchor="middle">
+    <!-- Header -->
+    <text x="600" y="305" font-family="'Times New Roman', Georgia, serif" font-size="24" font-weight="bold" fill="#222222" letter-spacing="6">THIS IS TO CERTIFY THAT</text>
+
+    <!-- Doctor Name (Exact match from uploaded document) -->
+    <text x="600" y="390" font-family="'Times New Roman', Georgia, serif" font-size="52" font-weight="900" fill="#111111" letter-spacing="1">OMAR PAJARES TEQUÉN, MD</text>
+
+    <!-- Course description lines -->
+    <text x="600" y="455" font-family="'Times New Roman', Georgia, serif" font-size="18" font-style="italic" font-weight="bold" fill="#333333">has successfully completed the prescribed course of study, written examination and</text>
+    <text x="600" y="482" font-family="'Times New Roman', Georgia, serif" font-size="18" font-style="italic" font-weight="bold" fill="#333333">practical testing for the designation of</text>
+
+    <!-- Title Badge -->
+    <text x="600" y="535" font-family="'Times New Roman', Georgia, serif" font-size="26" font-weight="900" fill="#000000" letter-spacing="2">IROM—C CERTIFIED</text>
+
+    <!-- Specialty Lines -->
+    <text x="600" y="580" font-family="'Times New Roman', Georgia, serif" font-size="22" font-weight="bold" fill="#1e3a5f">Interventional Regenerative Orthopedic Medicine</text>
+    <text x="600" y="608" font-family="'Times New Roman', Georgia, serif" font-size="17" font-weight="bold" fill="#333333">by the American Academy / Association of Orthopedic Medicine</text>
+  </g>
+
+  <!-- 7. Signatures & Date Section (Exact Replica of Scan) -->
+  <!-- Left: Date -->
+  <g transform="translate(260, 680)" text-anchor="center">
+    <text x="0" y="0" font-family="'Times New Roman', Georgia, serif" font-size="15" font-weight="bold" fill="#222222">October 16, 2019</text>
+    <line x1="-70" y1="10" x2="70" y2="10" stroke="#444444" stroke-width="1"/>
+    <text x="0" y="28" font-family="Arial, sans-serif" font-size="12" fill="#555555">Date of Certification</text>
+  </g>
+
+  <!-- Center: AAOM President Signature (Brian J. Shiple DO) -->
+  <g transform="translate(600, 675)" text-anchor="middle">
+    <!-- Cursive Signature Path -->
+    <path d="M-80 -8 C-60 -25, -40 -5, -20 -15 C0 -25, 20 -5, 40 -12 C55 -18, 70 2, 85 -5" fill="none" stroke="#0a192f" stroke-width="2.2" stroke-linecap="round"/>
+    <text x="-40" y="-18" font-family="'Brush Script MT', 'cursive', serif" font-size="22" fill="#0a192f" opacity="0.9">Brian J. Shiple DO</text>
+    <line x1="-100" y1="15" x2="100" y2="15" stroke="#444444" stroke-width="1"/>
+    <text x="0" y="33" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#222222">AAOM President</text>
+  </g>
+
+  <!-- Right: Certification Chairman Signature -->
+  <g transform="translate(940, 675)" text-anchor="middle">
+    <!-- Cursive Signature Path -->
+    <path d="M-60 2 C-40 -20, -20 10, 0 -10 C20 -25, 40 5, 65 -8" fill="none" stroke="#0a192f" stroke-width="2.2" stroke-linecap="round"/>
+    <line x1="-90" y1="15" x2="90" y2="15" stroke="#444444" stroke-width="1"/>
+    <text x="0" y="33" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#222222">Certification Chairman</text>
   </g>
 </svg>
